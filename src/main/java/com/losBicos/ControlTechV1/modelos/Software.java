@@ -16,6 +16,7 @@ import java.sql.Date;
  * @author Pc Elaine
  */
 @Entity
+
 public class Software {
 
     @Id
