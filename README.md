@@ -1,7 +1,7 @@
 <h1> ControlTech </h1>
 <p Aplicação Web para gerenciamento de Ativos e Softwares>
 
-<h2> Versão : 0.1 </h2>
+<h2> Versão : 0.3 </h2>
 
 Status do Projeto: ⚠️
 
