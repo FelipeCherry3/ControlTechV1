@@ -21,14 +21,16 @@ import java.sql.Date;
  */
 @Entity
 @Getter
+@AllArgsConstructor
 public class Software extends Ativos {
 
+    private  int id_software;
     private Date data_expira;
     private Integer pessoas_atribuidas;
     private String tipo_licenca;
     private Long n_licenca;
     private String tipo_OS;
 
-    
+    private Usuario user;
     
 }

@@ -8,23 +8,22 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity
-@Table(name = "ativos")
+@Table(name = "produto")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Ativos {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id_ativos;
-    private String nome_ativo;
+    private Integer id;
+    private String nome;
     private Integer qtdEstoque;
     private Double valorItem;
     private Fornecedor fornecedor;
     private LocalArmazenado localArmazenado;
     private Categoria categoria;
     private Date data_aquisicao;
-    private String status_ativo;
+    private String statusAtivo;
     private String descricao;
-    private String historico;
 
 }

@@ -9,7 +9,7 @@ import javax.management.relation.Role;
 import java.util.Set;
 
 @Entity
-@Table(name = "Usuarios")
+@Table(name = "users")
 @Getter
 @NoArgsConstructor
 public class Usuario {
