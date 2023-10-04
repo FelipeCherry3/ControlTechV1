@@ -10,6 +10,7 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nomeCategoria;
+    public Categoria(){}
 
     public Categoria(Integer id, String nomeCategoria) {
         this.id = id;

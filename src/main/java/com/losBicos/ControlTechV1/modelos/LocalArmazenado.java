@@ -1,11 +1,22 @@
 package com.losBicos.ControlTechV1.modelos;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+import java.util.List;
+
+@Entity
+@Table(name = "localArmazenado")
 public class LocalArmazenado {
     private Integer id;
     private String nomeLocal;
     private String endereco;
     private String descricao;
     private LocalArmazenado subLocal;
+
+    @OneToMany(mappedBy = "localArmazenado")
+    private List<Ativos> produtos;
 
     public LocalArmazenado() {
     }

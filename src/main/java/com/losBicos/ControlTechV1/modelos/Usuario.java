@@ -18,7 +18,8 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
-    private String username;
-    private String password;
+    private String login;
+    private String user_password;
+    private String endereco;
 
 }

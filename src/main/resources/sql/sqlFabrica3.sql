@@ -23,7 +23,16 @@ endereco		VARCHAR(200)	not null
 );
 create table localArmazenado(
 id				int 			not null		primary key 	auto_increment,
-nome 			VARCHAR(100)	not null,
+nomeLocal 			VARCHAR(100)	not null,
+endereco		VARCHAR(200)	not null,
+descricao		VARCHAR(300)	not null,
+subLocal        int             not null,
+foreign key(subLocal) references subLocal(id)
+);
+
+create table subLocal(
+id				int 			not null		primary key 	auto_increment,
+nomeLocal 		VARCHAR(100)	not null,
 endereco		VARCHAR(200)	not null,
 descricao		VARCHAR(300)	not null
 );
@@ -51,8 +60,9 @@ foreign key (id_produto) references produto(id)
 create table software(
 id_software 				int 			not null		primary key 	auto_increment,
 versao 			VARCHAR(15)		not null,
-lancamento		date			not null,
-licenca         VARCHAR(100),
+data_expira		date			not null,
+n_licenca         VARCHAR(100),
+tipo_OS           VARCHAR(100),
 id_produto      int				not null,
 foreign key (id_produto) references produto (id)
 );

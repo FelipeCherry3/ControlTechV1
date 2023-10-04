@@ -4,10 +4,7 @@
  */
 package com.losBicos.ControlTechV1.modelos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,16 +17,21 @@ import java.sql.Date;
  * @author Pc Elaine
  */
 @Entity
+@Table(name = "software")
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 public class Software extends Ativos {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id_software;
+    private String versao;
     private Date data_expira;
-    private Integer pessoas_atribuidas;
     private String tipo_licenca;
     private Long n_licenca;
     private String tipo_OS;
+
 
     private Usuario user;
     
