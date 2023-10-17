@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "produto")
@@ -14,16 +15,19 @@ import java.util.Date;
 @NoArgsConstructor
 public class Ativos {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    private Integer qtdEstoque;
+    private Integer qntEstoque;
     private Double valorItem;
-    private Fornecedor fornecedor;
-    private LocalArmazenado localArmazenado;
-    private Categoria categoria;
+
     private Date data_aquisicao;
+
     private String statusAtivo;
+
     private String descricao;
+    @ManyToOne
+    @JoinColumn(name = "idLocalArmazenado")
+    private LocalArmazenado localArmazenado;
 
 }
