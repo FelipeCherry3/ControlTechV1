@@ -54,6 +54,7 @@ versao 			VARCHAR(15)		not null,
 lancamento		date			not null,
 licenca         VARCHAR(100),
 id_produto      int				not null,
+tipo_OS         VARCHAR(45)     not null,
 foreign key (id_produto) references produto (id)
 );
 
