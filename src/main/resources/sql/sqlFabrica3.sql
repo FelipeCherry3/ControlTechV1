@@ -1,5 +1,5 @@
-create database if not exists ControleTechFab3;
-use ControleTechFab3;
+create database if not exists ControleTechFabrica3;
+use ControleTechFabrica3;
 
 drop table if exists produto_has_software;
 drop table if exists produto_has_categoria;
@@ -21,21 +21,22 @@ login			VARCHAR(45)		not null,
 user_password	VARCHAR(100)	not null,	#Comando MD5 na inserção faz a cryptografia da senha
 endereco		VARCHAR(200)	not null
 );
-create table localArmazenado(
-id				int 			not null		primary key 	auto_increment,
-nomeLocal 			VARCHAR(100)	not null,
-endereco		VARCHAR(200)	not null,
-descricao		VARCHAR(300)	not null,
-subLocal        int             not null,
-foreign key(subLocal) references subLocal(id)
-);
-
 create table subLocal(
 id				int 			not null		primary key 	auto_increment,
 nomeLocal 		VARCHAR(100)	not null,
 endereco		VARCHAR(200)	not null,
 descricao		VARCHAR(300)	not null
 );
+
+create table localArmazenado(
+id				int 			not null		primary key 	auto_increment,
+nomeLocal 		VARCHAR(100)	not null,
+endereco		VARCHAR(200)	not null,
+descricao		VARCHAR(300)	not null,
+subLocal        int             ,
+foreign key(subLocal) references subLocal(id)
+);
+
 
 create table produto(
 id				int 			not null		primary key		auto_increment,
@@ -65,14 +66,6 @@ n_licenca         VARCHAR(100),
 tipo_OS           VARCHAR(100),
 id_produto      int				not null,
 foreign key (id_produto) references produto (id)
-);
-
-create table subLocal(
-id				int 			not null		primary key		auto_increment,
-nome			VARCHAR(100)	not null,
-descricao		VARCHAR(300)	not null,
-localArmazenado	int				not null,
-foreign key (localArmazenado) references localArmazenado (id)
 );
 
 
