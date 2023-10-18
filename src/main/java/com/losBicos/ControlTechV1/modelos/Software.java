@@ -20,6 +20,7 @@ import java.sql.Date;
 @Table(name = "software")
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Software {
 
     @Id
