@@ -8,11 +8,11 @@ package com.losBicos.ControlTechV1.repositories;
  *
  * @author Pc Elaine
  */
-
-import org.springframework.data.repository.CrudRepository;
-
 import com.losBicos.ControlTechV1.modelos.Software;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface SoftwareRepository extends CrudRepository<Software, Integer> {
-    
+@Repository
+public interface SoftwareRepository extends JpaRepository<Software, Long> {
+    // Você pode adicionar consultas personalizadas aqui, se necessário.
 }
