@@ -10,7 +10,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "produto")
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Ativos {
@@ -30,4 +29,67 @@ public class Ativos {
     @JoinColumn(name = "idLocalArmazenado")
     private LocalArmazenado localArmazenado;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setQntEstoque(Integer qntEstoque) {
+        this.qntEstoque = qntEstoque;
+    }
+
+    public void setValorItem(Double valorItem) {
+        this.valorItem = valorItem;
+    }
+
+    public void setData_aquisicao(Date data_aquisicao) {
+        this.data_aquisicao = data_aquisicao;
+    }
+
+    public void setStatusAtivo(String statusAtivo) {
+        this.statusAtivo = statusAtivo;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setLocalArmazenado(LocalArmazenado localArmazenado) {
+        this.localArmazenado = localArmazenado;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Integer getQntEstoque() {
+        return qntEstoque;
+    }
+
+    public Double getValorItem() {
+        return valorItem;
+    }
+
+    public Date getData_aquisicao() {
+        return data_aquisicao;
+    }
+
+    public String getStatusAtivo() {
+        return statusAtivo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public LocalArmazenado getLocalArmazenado() {
+        return localArmazenado;
+    }
 }
