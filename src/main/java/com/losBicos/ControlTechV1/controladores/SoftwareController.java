@@ -42,6 +42,7 @@ public class SoftwareController {
             softwareExistente.setData_expira(novoSoftware.getData_expira());
             softwareExistente.setN_licenca(novoSoftware.getN_licenca());
             softwareExistente.setTipo_OS(novoSoftware.getTipo_OS());
+            softwareExistente.setUser(novoSoftware.getUser());
 
             // Salve o software atualizado no repositório
             softwareRepository.save(softwareExistente);
