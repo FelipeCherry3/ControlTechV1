@@ -14,5 +14,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SoftwareRepository extends JpaRepository<Software, Long> {
-    // Você pode adicionar consultas personalizadas aqui, se necessário.
+
+
 }

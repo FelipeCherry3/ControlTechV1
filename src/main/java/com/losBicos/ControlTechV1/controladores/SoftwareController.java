@@ -3,8 +3,10 @@ package com.losBicos.ControlTechV1.controladores;
 import com.losBicos.ControlTechV1.modelos.Software;
 import com.losBicos.ControlTechV1.repositories.SoftwareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
@@ -27,6 +29,18 @@ public class SoftwareController {
         softwareRepository.save(software);
         return "Software Cadastrado";
     }
+
+    @GetMapping(path = "/selecionar{id}")
+    public @ResponseBody Software getSoftware(@PathVariable Long id){
+        Optional<Software> software = softwareRepository.findById(id);
+        if(software.isPresent()){
+            Software realSoftware = software.get();
+            return realSoftware;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Software nao encontrado'");
+        }
+    }
+
     @PutMapping(path = "/atualizar/{id}")
     public @ResponseBody String atualizarSoftware(@PathVariable Long id,
                                                   @RequestBody Software novoSoftware){

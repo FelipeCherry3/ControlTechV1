@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 
 @Controller
-@RequestMapping(path="/software") //Mapeamento da URL
+@RequestMapping(path="/main") //Mapeamento da URL
 public class ControladorMain {
     @Autowired
     private SoftwareRepository softwareRepository;
