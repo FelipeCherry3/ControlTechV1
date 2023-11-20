@@ -37,17 +37,6 @@ public class Software {
     @JoinColumn(name = "id_produto")
     private Ativos produto;
 
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario user;
-
-    public Usuario getUser() {
-        return user;
-    }
-
-    public void setUser(Usuario user) {
-        this.user = user;
-    }
 
     public void setId_software(Integer id_software) {
         this.id_software = id_software;
