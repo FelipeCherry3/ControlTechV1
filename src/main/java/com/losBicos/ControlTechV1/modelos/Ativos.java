@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Controller;
 
 import java.util.Date;
 import java.util.List;
@@ -17,11 +18,16 @@ public class Ativos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+
+    @Column(name = "qntEstoque")
     private Integer qntEstoque;
+    @Column(name = "valorItem")
     private Double valorItem;
 
+    @Column(name = "data_aquisicao")
     private Date data_aquisicao;
 
+    @Column(name = "statusAtivo")
     private String statusAtivo;
 
     private String descricao;

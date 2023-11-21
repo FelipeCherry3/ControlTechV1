@@ -9,8 +9,6 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "sublocal")
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class SubLocal {
@@ -20,4 +18,36 @@ public class SubLocal {
     private String nomelocal;
     private String endereco;
     private String descricao;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNomelocal() {
+        return nomelocal;
+    }
+
+    public void setNomelocal(String nomelocal) {
+        this.nomelocal = nomelocal;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 }
