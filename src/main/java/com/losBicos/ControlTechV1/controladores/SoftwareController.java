@@ -34,8 +34,7 @@ public class SoftwareController {
     public @ResponseBody Software getSoftware(@PathVariable Long id){
         Optional<Software> software = softwareRepository.findById(id);
         if(software.isPresent()){
-            Software realSoftware = software.get();
-            return realSoftware;
+            return software.get();
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Software nao encontrado'");
         }

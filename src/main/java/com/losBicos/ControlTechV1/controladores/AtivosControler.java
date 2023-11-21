@@ -2,10 +2,13 @@ package com.losBicos.ControlTechV1.controladores;
 
 
 import com.losBicos.ControlTechV1.modelos.Ativos;
+import com.losBicos.ControlTechV1.modelos.Software;
 import com.losBicos.ControlTechV1.repositories.AtivoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
@@ -31,6 +34,15 @@ public class AtivosControler {
         return "Cadastrado com sucesso";
     }
 
+    @GetMapping(path = "/selecionar{id}")
+    public @ResponseBody Ativos getAtivos(@PathVariable Long id){
+        Optional<Ativos> ativoOp = ativoRepository.findById(id);
+        if(ativoOp.isPresent()){
+            return ativoOp.get();
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Ativo não encontrado");
+        }
+    }
     @PutMapping(path = "/atualiza{id}")
     public @ResponseBody String atualizarAtivo(@RequestBody Long id,
                                                Ativos novoAtivos){

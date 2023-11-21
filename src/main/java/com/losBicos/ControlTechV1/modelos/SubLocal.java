@@ -17,7 +17,7 @@ public class SubLocal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nomeLocal;
+    private String nomelocal;
     private String endereco;
     private String descricao;
 }

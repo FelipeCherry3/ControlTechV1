@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "localArmazenado")
+@Table(name = "localarmazenado")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,7 +19,7 @@ public class LocalArmazenado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nomeLocal;
+    private String nomelocal;
     private String endereco;
     private String descricao;
 
