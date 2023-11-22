@@ -1,6 +1,8 @@
 package com.losBicos.ControlTechV1.controladores;
 
 import com.losBicos.ControlTechV1.modelos.*;
+import com.losBicos.ControlTechV1.repositories.AtivoRepository;
+import com.losBicos.ControlTechV1.repositories.LocalRepository;
 import com.losBicos.ControlTechV1.repositories.ProdutoCategoriaRepository;
 import com.losBicos.ControlTechV1.repositories.SoftwareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +20,12 @@ public class SoftwareController {
 
     @Autowired
     private SoftwareRepository softwareRepository;
-    @Autowired
-    ProdutoCategoriaRepository produtoCategoriaRepository;
 
+    @Autowired
+    private LocalRepository localRepository;
+
+    @Autowired
+    private AtivoRepository ativoRepository;
     @GetMapping(path = "/all")
     public @ResponseBody Iterable<Software> getAllSoftware(){
         return softwareRepository.findAll();
@@ -35,11 +40,16 @@ public class SoftwareController {
     @PostMapping(path = "/cadastrarTeste")
     public @ResponseBody String cadastroTeste(@RequestBody AtivoMiddleWare ativoMiddleWare){
         Ativos ativo = ativoMiddleWare.getAtivos();
+        Optional<LocalArmazenado> local = localRepository.findById(Long.valueOf(ativoMiddleWare.getLocal().getId()));
+        if (local.isPresent()){
+            ativo.setLocalArmazenado(local.get());
+        }
+        ativoRepository.save(ativo);
+        Ativos ativoCad = ativoRepository.findByNome(ativo.getNome());
         Software software = ativoMiddleWare.getSoftware();
-        Categoria categoria = ativoMiddleWare.getCategoria();
-        software.setProduto(ativo);
-        ProdutoCategoria pc = new ProdutoCategoria(ativo,categoria);
-        produtoCategoriaRepository.save(pc);
+        software.setProduto(ativoCad);
+
+
         softwareRepository.save(software);
 
         return "Cadastro Realizado com sucesso";
