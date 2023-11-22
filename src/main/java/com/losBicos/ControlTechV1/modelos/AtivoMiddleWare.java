@@ -4,8 +4,11 @@ public class AtivoMiddleWare {
     private Ativos ativos;
 
     private Software software;
-    private Categoria categoria;
+
     private LocalArmazenado local;
+
+    public AtivoMiddleWare() {
+    }
 
     public AtivoMiddleWare(Ativos ativos) {
         this.ativos = ativos;
@@ -16,16 +19,11 @@ public class AtivoMiddleWare {
         this.software = software;
     }
 
-    public AtivoMiddleWare(Ativos ativos, Software software, Categoria categoria) {
-        this.ativos = ativos;
-        this.software = software;
-        this.categoria = categoria;
-    }
 
-    public AtivoMiddleWare(Ativos ativos, Software software, Categoria categoria, LocalArmazenado local) {
+    public AtivoMiddleWare(Ativos ativos, Software software, LocalArmazenado local) {
         this.ativos = ativos;
         this.software = software;
-        this.categoria = categoria;
+
         this.local = local;
     }
 
@@ -45,13 +43,6 @@ public class AtivoMiddleWare {
         this.software = software;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
 
     public LocalArmazenado getLocal() {
         return local;
