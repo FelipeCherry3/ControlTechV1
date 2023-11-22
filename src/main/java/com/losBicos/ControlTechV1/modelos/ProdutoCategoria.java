@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "produto_has_categoria")
 public class ProdutoCategoria {
 
+
     @Id
     @ManyToOne
     @JoinColumn(name = "id_produto")
@@ -15,4 +16,10 @@ public class ProdutoCategoria {
     @ManyToOne
     @JoinColumn(name = "id_categoria")
     private Categoria categoria;
+
+    public ProdutoCategoria(Ativos produto, Categoria categoria) {
+        this.produto = produto;
+        this.categoria = categoria;
+    }
+
 }

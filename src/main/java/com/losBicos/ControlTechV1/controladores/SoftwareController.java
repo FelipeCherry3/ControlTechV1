@@ -1,6 +1,7 @@
 package com.losBicos.ControlTechV1.controladores;
 
-import com.losBicos.ControlTechV1.modelos.Software;
+import com.losBicos.ControlTechV1.modelos.*;
+import com.losBicos.ControlTechV1.repositories.ProdutoCategoriaRepository;
 import com.losBicos.ControlTechV1.repositories.SoftwareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,8 @@ public class SoftwareController {
 
     @Autowired
     private SoftwareRepository softwareRepository;
+    @Autowired
+    ProdutoCategoriaRepository produtoCategoriaRepository;
 
     @GetMapping(path = "/all")
     public @ResponseBody Iterable<Software> getAllSoftware(){
@@ -29,6 +32,19 @@ public class SoftwareController {
         softwareRepository.save(software);
         return "Software Cadastrado";
     }
+    @PostMapping(path = "/cadastrarTeste")
+    public @ResponseBody String cadastroTeste(@RequestBody AtivoMiddleWare ativoMiddleWare){
+        Ativos ativo = ativoMiddleWare.getAtivos();
+        Software software = ativoMiddleWare.getSoftware();
+        Categoria categoria = ativoMiddleWare.getCategoria();
+        software.setProduto(ativo);
+        ProdutoCategoria pc = new ProdutoCategoria(ativo,categoria);
+        produtoCategoriaRepository.save(pc);
+        softwareRepository.save(software);
+
+        return "Cadastro Realizado com sucesso";
+    }
+
 
     @GetMapping(path = "/selecionar{id}")
     public @ResponseBody Software getSoftware(@PathVariable Long id){
