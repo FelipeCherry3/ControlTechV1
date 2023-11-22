@@ -7,12 +7,10 @@ import com.losBicos.ControlTechV1.repositories.LocalRepository;
 import com.losBicos.ControlTechV1.repositories.SubLocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Local;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
@@ -37,16 +35,6 @@ public class LocalController {
     }
 
 
-    @GetMapping(path = "/selecionar/{id}")
-    public @ResponseBody LocalArmazenado localGet (@PathVariable Long id){
-        Optional<LocalArmazenado> localOP = localRepository.findById(id);
-        if(localOP.isPresent()){
-            return localOP.get();
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Local nao encontrado'");
-
-        }
-    }
     @PostMapping(path = "/cadastrar")
     public @ResponseBody String cadastroTeste(@RequestBody LocalSubLocal localSubLocal){
 
