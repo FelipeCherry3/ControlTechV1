@@ -14,11 +14,11 @@ Status do Projeto: ⚠️
   <li> ✔️ Acesso remoto pela Web ou Mobile</li>
   <li> ✔️ Cadastramento de Usuários</li>
   <li> ✔️ Sistema de Login e validação de cadastros</li>
-  <li> ⚠️ Persistência e autenticidade de Dados Relacionais </li>
-  <li> ⚠️ Cadastramento de Ativos e Softwares </li>
+  <li> ✔️ Persistência e autenticidade de Dados Relacionais </li>
+  <li> ✔️ Cadastramento de Ativos e Softwares </li>
   <li> ⚠️ Sistema de Atribuição de licenças a usuários</li>
-  <li> ⚠️ Cadastramento de tipos de usuários (professores,alunos,funcionários) </li>
-  <li> ⚠️ Busca e Visualização de Dados e Relatórios</li>
+  <li> ✔️ Cadastramento de tipos de usuários (professores,alunos,funcionários) </li>
+  <li> ✔️ Busca e Visualização de Dados e Relatórios</li>
 
 </ol>
 
