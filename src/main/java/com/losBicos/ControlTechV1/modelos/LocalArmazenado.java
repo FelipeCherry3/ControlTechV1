@@ -25,7 +25,7 @@ public class LocalArmazenado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String nomelocal;
     private String endereco;
     private String descricao;
@@ -34,11 +34,11 @@ public class LocalArmazenado {
     @JoinColumn(name = "sublocal")
     private SubLocal subLocal;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
