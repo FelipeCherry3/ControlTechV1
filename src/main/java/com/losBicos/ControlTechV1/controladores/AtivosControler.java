@@ -26,6 +26,14 @@ public class AtivosControler {
         return ativoRepository.findAll();
     }
 
+    @GetMapping(path = "/selecionarPorLocal")
+    public @ResponseBody Iterable<Ativos> getAllAtivosByLocal(@PathVariable Long id){
+
+        Iterable<Ativos> byLocalArmazenado = (Iterable<Ativos>) ativoRepository.findByLocalArmazenado(id);
+
+        return byLocalArmazenado;
+    }
+
     //Cadastramento de Ativos
 
     @PostMapping(path = "/cadastrar")

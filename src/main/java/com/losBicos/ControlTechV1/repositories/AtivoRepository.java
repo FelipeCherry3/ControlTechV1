@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface AtivoRepository extends JpaRepository<Ativos, Long> {
     Optional<Ativos> findById(Long id);
     Ativos findByNome(String nome);
+    Ativos findByLocalArmazenado(Long id);
 }
