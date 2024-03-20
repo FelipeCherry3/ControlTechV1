@@ -31,7 +31,7 @@ public class UserController {
     public @ResponseBody String fazerLogin(@RequestParam String nome, @RequestParam String user_password) {
         Usuario usuario = usersRepository.findByNome(nome);
         if (usuario != null && usuario.getUser_password().equals(user_password)){
-            //Implementar login
+            //Implementar login XXX Erro de lógica
             return "Login bem-sucedido!";
 
         } else if (usuario == null) {
