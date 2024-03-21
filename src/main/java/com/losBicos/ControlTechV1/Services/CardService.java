@@ -49,7 +49,7 @@ public class CardService {
     public List<Cards> createCard(){
         carregarDados();
         for(LocalArmazenado local : locais){
-            List<Ativos> ativosLocal = ativoRepository.findByLocalArmazenado(local.getId());
+            List<Ativos> ativosLocal = ativoRepository.findByLocalArmazenado(local);
             double valor = 0.0;
 
             for (Ativos ativo : ativosLocal) {

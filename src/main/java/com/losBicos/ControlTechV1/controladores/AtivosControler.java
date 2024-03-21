@@ -2,6 +2,7 @@ package com.losBicos.ControlTechV1.controladores;
 
 
 import com.losBicos.ControlTechV1.modelos.Ativos;
+import com.losBicos.ControlTechV1.modelos.LocalArmazenado;
 import com.losBicos.ControlTechV1.modelos.Software;
 import com.losBicos.ControlTechV1.repositories.AtivoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,9 @@ public class AtivosControler {
     }
 
     @GetMapping(path = "/selecionarPorLocal")
-    public @ResponseBody Iterable<Ativos> getAllAtivosByLocal(@PathVariable Long id){
+    public @ResponseBody Iterable<Ativos> getAllAtivosByLocal(@PathVariable LocalArmazenado local){
 
-        Iterable<Ativos> byLocalArmazenado = (Iterable<Ativos>) ativoRepository.findByLocalArmazenado(id);
+        Iterable<Ativos> byLocalArmazenado = (Iterable<Ativos>) ativoRepository.findByLocalArmazenado(local);
 
         return byLocalArmazenado;
     }

@@ -21,4 +21,7 @@ public class AtivoFisico {
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario user;
+
+    public void setProduto(Ativos ativoCad) {
+    }
 }

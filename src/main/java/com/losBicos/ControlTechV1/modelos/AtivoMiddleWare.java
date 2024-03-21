@@ -6,6 +6,7 @@ public class AtivoMiddleWare {
     private Software software;
 
     private LocalArmazenado local;
+    private AtivoFisico ativoFisico;
 
     public AtivoMiddleWare() {
     }
@@ -18,6 +19,10 @@ public class AtivoMiddleWare {
         this.ativos = ativos;
         this.software = software;
     }
+    public AtivoMiddleWare(Ativos ativos, AtivoFisico ativoFisico){
+        this.ativos = ativos;
+        this.ativoFisico = ativoFisico;
+    }
 
 
     public AtivoMiddleWare(Ativos ativos, Software software, LocalArmazenado local) {
@@ -25,6 +30,14 @@ public class AtivoMiddleWare {
         this.software = software;
 
         this.local = local;
+    }
+
+    public AtivoFisico getAtivoFisico() {
+        return ativoFisico;
+    }
+
+    public void setAtivoFisico(AtivoFisico ativoFisico) {
+        this.ativoFisico = ativoFisico;
     }
 
     public Ativos getAtivos() {

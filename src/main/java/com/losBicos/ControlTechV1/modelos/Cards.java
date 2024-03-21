@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 
 import java.util.List;
 
-@Entity
+
 @AllArgsConstructor
 
 public class Cards {
