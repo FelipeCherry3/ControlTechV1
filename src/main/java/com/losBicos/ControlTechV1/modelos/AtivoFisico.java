@@ -25,4 +25,7 @@ public class AtivoFisico {
     public void setProduto(Ativos ativoCad) {
         this.produto = ativoCad;
     }
+    public void setUser(Usuario user){
+        this.user = user;
+    }
 }

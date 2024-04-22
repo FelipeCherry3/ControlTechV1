@@ -8,6 +8,8 @@ public class AtivoMiddleWare {
     private LocalArmazenado local;
     private AtivoFisico ativoFisico;
 
+    private Usuario usuario;
+
     public AtivoMiddleWare() {
     }
 
@@ -24,6 +26,17 @@ public class AtivoMiddleWare {
         this.ativoFisico = ativoFisico;
     }
 
+    public AtivoMiddleWare(Ativos ativos, AtivoFisico ativoFisico, Usuario usuario){
+        this.ativos = ativos;
+        this.ativoFisico = ativoFisico;
+        this.usuario = usuario;
+    }
+    public AtivoMiddleWare(Ativos ativos, AtivoFisico ativoFisico, Usuario usuario, LocalArmazenado local){
+        this.ativos = ativos;
+        this.ativoFisico = ativoFisico;
+        this.usuario = usuario;
+        this.local = local;
+    }
 
     public AtivoMiddleWare(Ativos ativos, Software software, LocalArmazenado local) {
         this.ativos = ativos;
@@ -63,5 +76,12 @@ public class AtivoMiddleWare {
 
     public void setLocal(LocalArmazenado local) {
         this.local = local;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    public Usuario getUsuario(){
+        return usuario;
     }
 }

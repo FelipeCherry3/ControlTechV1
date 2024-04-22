@@ -6,9 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.management.relation.Role;
-import java.util.Set;
-
 @Entity
 @Table(name = "users")
 @Getter
@@ -19,18 +16,18 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
-    private Integer id;
+    private Integer id_user;
     private String nome;
     private String login;
     private String user_password;
     private String endereco;
 
-    public Integer getId() {
-        return id;
+    public Integer getId_user() {
+        return id_user;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId_user(Integer id_user) {
+        this.id_user = id_user;
     }
 
     public String getNome() {
