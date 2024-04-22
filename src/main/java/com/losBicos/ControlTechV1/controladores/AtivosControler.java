@@ -5,6 +5,7 @@ import com.losBicos.ControlTechV1.modelos.Ativos;
 import com.losBicos.ControlTechV1.modelos.LocalArmazenado;
 import com.losBicos.ControlTechV1.modelos.Software;
 import com.losBicos.ControlTechV1.repositories.AtivoRepository;
+import com.losBicos.ControlTechV1.repositories.LocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ public class AtivosControler {
     @Autowired
     private AtivoRepository ativoRepository;
 
+    @Autowired
+    private LocalRepository localRepository;
     @GetMapping(path = "/all")
     public @ResponseBody Iterable<Ativos> getAllAtivos(){
 
@@ -39,6 +42,11 @@ public class AtivosControler {
 
     @PostMapping(path = "/cadastrar")
     public @ResponseBody String cadastroAtivos(@RequestBody Ativos ativos){
+        Optional<LocalArmazenado> local = localRepository.findById(Long.valueOf(ativos.getIdLocalArmazenado()));
+        if(local.isPresent()){
+            LocalArmazenado localArmazenado = local.get();
+            ativos.setLocalArmazenado(localArmazenado);
+        }
             ativoRepository.save(ativos);
         return "Cadastrado com sucesso";
     }

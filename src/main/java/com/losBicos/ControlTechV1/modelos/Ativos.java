@@ -16,6 +16,7 @@ import java.util.List;
 public class Ativos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_produto")
     private Integer id;
     private String nome;
 
@@ -24,7 +25,7 @@ public class Ativos {
     @Column(name = "valorItem")
     private Double valorItem;
 
-    @Column(name = "data_aquisicao")
+    @Column(name = "dataAquisicao")
     private Date data_aquisicao;
 
     @Column(name = "statusAtivo")
@@ -34,6 +35,16 @@ public class Ativos {
     @ManyToOne
     @JoinColumn(name = "idLocalArmazenado")
     private LocalArmazenado localArmazenado;
+
+    public Integer getIdLocalArmazenado() {
+        return idLocalArmazenadoId;
+    }
+
+    public void setIdLocalArmazenado(Integer idLocalArmazenado) {
+        this.idLocalArmazenadoId = idLocalArmazenado;
+    }
+
+    private Integer idLocalArmazenadoId;
 
     public void setId(Integer id) {
         this.id = id;

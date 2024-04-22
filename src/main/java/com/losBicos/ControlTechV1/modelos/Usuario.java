@@ -18,6 +18,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_user")
     private Integer id;
     private String nome;
     private String login;

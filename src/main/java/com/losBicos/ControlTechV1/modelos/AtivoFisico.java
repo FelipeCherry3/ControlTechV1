@@ -19,9 +19,10 @@ public class AtivoFisico {
     @JoinColumn(name = "id_produto")
     private Ativos produto;
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "id_user")
     private Usuario user;
 
     public void setProduto(Ativos ativoCad) {
+        this.produto = ativoCad;
     }
 }

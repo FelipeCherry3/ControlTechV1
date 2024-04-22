@@ -24,17 +24,24 @@ public class AtivoFisicoController {
     @PostMapping(path = "/cadastrarTeste")
     public @ResponseBody String cadastroTeste(@RequestBody AtivoMiddleWare ativoMiddleWare){
         Ativos ativo = ativoMiddleWare.getAtivos();
-        Optional<LocalArmazenado> local = localRepository.findById(Long.valueOf(ativoMiddleWare.getLocal().getId()));
+        Optional<LocalArmazenado> local = localRepository.findById(Long.valueOf(ativoMiddleWare.getAtivos().getIdLocalArmazenado()));
         if (local.isPresent()){
             ativo.setLocalArmazenado(local.get());
         }
-        ativoRepository.save(ativo);
-        Ativos ativoCad = ativoRepository.findByNome(ativo.getNome());
-        AtivoFisico ativoFisico = ativoMiddleWare.getAtivoFisico();
-        ativoFisico.setProduto(ativoCad);
+        Ativos ativoCad = ativoRepository.save(ativo);
 
-        ativoFisicoRepository.save(ativoFisico);
+        // Verificando se o Ativos foi salvo corretamente
+        if (ativoCad != null) {
+            AtivoFisico ativoFisico = ativoMiddleWare.getAtivoFisico();
+            // Associando o Ativos recém-cadastrado ao AtivoFisico
+            ativoFisico.setProduto(ativoCad);
 
-        return "Cadastro Realizado com sucesso";
+            // Salvando o AtivoFisico
+            ativoFisicoRepository.save(ativoFisico);
+
+            return "Cadastro Realizado com sucesso";
+        } else {
+            return "Erro ao cadastrar Ativos";
+        }
     }
 }
