@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @CrossOrigin
-@RequestMapping(path="/users")
+@RequestMapping(path = "users")
 public class UserController {
 
     @Autowired
@@ -20,12 +20,14 @@ public class UserController {
     }
 
     // Rota para cadastrar um novo usuário
-        @PostMapping(path = "/cadastro")
-        public @ResponseBody String cadastrarUsuario(@RequestBody Usuario usuario) {
-            usersRepository.save(usuario);
+    @PostMapping(path = "/cadastro")
+    public @ResponseBody String cadastrarUsuario(@RequestBody Usuario usuario) {
+        usersRepository.save(usuario);
 
-           return "Usuário cadastrado com sucesso!";
-        }
+       return "Usuário cadastrado com sucesso!";
+    }
+    //Retorna usuario por username(login)
+
     // Rota para fazer login
     @PostMapping(path = "/login")
     public @ResponseBody String fazerLogin(@RequestParam String nome, @RequestParam String user_password) {
@@ -37,6 +39,15 @@ public class UserController {
         } else if (usuario == null) {
 
         }
-        return "Login bem-sucedido!";
+    return "Login bem-sucedido!";
+    }
+    @GetMapping(path = "/findbylogin")
+    public @ResponseBody Usuario findByLogin(@RequestParam String login) {
+        Usuario usuario = usersRepository.findByLogin(login);
+        if(usuario == null){
+            System.out.println("Sem usuario");
+        }
+        System.out.println(usuario.getLogin());
+        return usuario;
     }
 }
