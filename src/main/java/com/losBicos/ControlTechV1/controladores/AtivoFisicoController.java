@@ -33,7 +33,6 @@ public class AtivoFisicoController {
             ativo.setLocalArmazenado(local.get());
         }
         Ativos ativoCad = ativoRepository.save(ativo);
-        System.out.println("QUERO VER O CAD " + ativoCad.getNome() + "ID - " + ativoCad.getId());
 
         // Verificando se o Ativos foi salvo corretamente
         if (ativoCad != null) {
