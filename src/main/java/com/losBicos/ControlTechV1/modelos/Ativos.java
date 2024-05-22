@@ -35,17 +35,6 @@ public class Ativos {
     @ManyToOne
     @JoinColumn(name = "idLocalArmazenado")
     private LocalArmazenado localArmazenado;
-
-    public Integer getIdLocalArmazenado() {
-        return idLocalArmazenadoId;
-    }
-
-    public void setIdLocalArmazenado(Integer idLocalArmazenado) {
-        this.idLocalArmazenadoId = idLocalArmazenado;
-    }
-
-    private Integer idLocalArmazenadoId;
-
     public void setId(Integer id) {
         this.id = id;
     }

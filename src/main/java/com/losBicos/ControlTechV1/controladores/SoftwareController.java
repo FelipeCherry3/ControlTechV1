@@ -41,7 +41,7 @@ public class SoftwareController {
     @PostMapping(path = "/cadastrarTeste")
     public @ResponseBody String cadastroTeste(@RequestBody AtivoMiddleWare ativoMiddleWare){
         Ativos ativo = ativoMiddleWare.getAtivos();
-        Optional<LocalArmazenado> local = localRepository.findById(Long.valueOf(ativoMiddleWare.getLocal().getId()));
+        Optional<LocalArmazenado> local = Optional.ofNullable(ativoMiddleWare.getLocal());
         if (local.isPresent()){
             ativo.setLocalArmazenado(local.get());
         }

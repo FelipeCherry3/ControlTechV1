@@ -28,7 +28,7 @@ public class AtivoFisicoController {
     @PostMapping(path = "/cadastrarTeste")
     public @ResponseBody String cadastroTeste(@RequestBody AtivoMiddleWare ativoMiddleWare){
         Ativos ativo = ativoMiddleWare.getAtivos();
-        Optional<LocalArmazenado> local = localRepository.findById(Long.valueOf(ativoMiddleWare.getAtivos().getIdLocalArmazenado()));
+        Optional<LocalArmazenado> local = localRepository.findById(Long.valueOf(ativoMiddleWare.getAtivos().getLocalArmazenado().getId()));
         if (local.isPresent()){
             ativo.setLocalArmazenado(local.get());
         }

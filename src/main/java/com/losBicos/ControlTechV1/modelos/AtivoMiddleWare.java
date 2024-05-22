@@ -10,6 +10,7 @@ public class AtivoMiddleWare {
 
     private Usuario usuario;
 
+
     public AtivoMiddleWare() {
     }
 

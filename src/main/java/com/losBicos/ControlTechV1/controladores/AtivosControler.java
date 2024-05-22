@@ -42,7 +42,7 @@ public class AtivosControler {
 
     @PostMapping(path = "/cadastrar")
     public @ResponseBody String cadastroAtivos(@RequestBody Ativos ativos){
-        Optional<LocalArmazenado> local = localRepository.findById(Long.valueOf(ativos.getIdLocalArmazenado()));
+        Optional<LocalArmazenado> local = localRepository.findById(Long.valueOf(ativos.getLocalArmazenado().getId()));
         if(local.isPresent()){
             LocalArmazenado localArmazenado = local.get();
             ativos.setLocalArmazenado(localArmazenado);
