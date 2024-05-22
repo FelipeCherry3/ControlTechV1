@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Controller
@@ -103,4 +104,17 @@ public class SoftwareController {
             return "Erro ao Excluir Software";
         }
     }
+
+    @GetMapping(path = "/licencas/{id}")
+    public @ResponseBody Iterable<Licencas> getLicencas(@PathVariable Long id_software){
+        Optional<Software> optionalSoftware = softwareRepository.findById(id_software);
+        if (optionalSoftware.isPresent()) {
+            return optionalSoftware.get().getLicencas();
+        } else {
+            // Retorna uma lista vazia
+            return new ArrayList<>();
+        }
+    }
+
+
 }

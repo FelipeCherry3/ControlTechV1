@@ -13,6 +13,7 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -40,7 +41,15 @@ public class Software {
 
     @OneToMany
     @JoinColumn(name = "id_licenca")
-    private ArrayList<Licencas> licencas;
+    private List<Licencas> licencas;
+
+    public List<Licencas> getLicencas() {
+        return licencas;
+    }
+
+    public void setLicencas(List<Licencas> licencas) {
+        this.licencas = licencas;
+    }
 
     public void setId_software(Integer id_software) {
         this.id_software = id_software;
