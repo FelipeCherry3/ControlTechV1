@@ -104,6 +104,16 @@ public class SoftwareController {
             return "Erro ao Excluir Software";
         }
     }
+    @GetMapping(path = "/by-ativo-name/{name}")
+    public @ResponseBody Software getSoftwareByAtivoName(@PathVariable("name") String ativoNome) {
+        Ativos ativo = ativoRepository.findByNome(ativoNome);
+            Optional<Software> software = softwareRepository.findByProduto(ativo);
+            if (software.isPresent()) {
+                return software.get();
+            } else {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Software not found");
+            }
+    }
 
     @GetMapping(path = "/licencas/{id}")
     public @ResponseBody Iterable<Licencas> getLicencas(@PathVariable Long id_software){
