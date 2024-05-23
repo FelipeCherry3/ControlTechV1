@@ -73,6 +73,8 @@ id_licenca  int not null    primary key auto_increment,
 chave VARCHAR(120) not null,
 observacoes VARCHAR(400),
 id_usuario int not null,
+id_software int not null,
+foreign key (id_software) references software(id_software),
 foreign key (id_usuario) references users(id_user)
 );
 
@@ -94,12 +96,8 @@ id_produto		int 			not null,
 foreign key (id_users) references users (id_user),
 foreign key (id_produto) references produto (id_produto)
 );
-create table software_has_licencas (
-id_licenca int not null,
-id_software int not null,
-foreign key (id_software) references software(id_software),
-foreign key (id_licenca) references licencas(id_licenca)
-);
+
+
 create table produto_has_fornecedor(
 id_produto			int 			not null,
 id_fornecedor		int 			not null,

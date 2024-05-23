@@ -1,10 +1,7 @@
 package com.losBicos.ControlTechV1.controladores;
 
 import com.losBicos.ControlTechV1.modelos.*;
-import com.losBicos.ControlTechV1.repositories.AtivoRepository;
-import com.losBicos.ControlTechV1.repositories.LocalRepository;
-import com.losBicos.ControlTechV1.repositories.ProdutoCategoriaRepository;
-import com.losBicos.ControlTechV1.repositories.SoftwareRepository;
+import com.losBicos.ControlTechV1.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -12,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -27,6 +25,10 @@ public class SoftwareController {
 
     @Autowired
     private AtivoRepository ativoRepository;
+
+    @Autowired
+    private LicencasRepository licencasRepository;
+
     @GetMapping(path = "/all")
     public @ResponseBody Iterable<Software> getAllSoftware(){
         return softwareRepository.findAll();
@@ -116,15 +118,21 @@ public class SoftwareController {
     }
 
     @GetMapping(path = "/licencas/{id}")
-    public @ResponseBody Iterable<Licencas> getLicencas(@PathVariable Long id_software){
-        Optional<Software> optionalSoftware = softwareRepository.findById(id_software);
+    public @ResponseBody Iterable<Licencas> getLicencas(@PathVariable Long id){
+        Optional<Software> optionalSoftware = softwareRepository.findById(id);
         if (optionalSoftware.isPresent()) {
-            return optionalSoftware.get().getLicencas();
+
+            return licencasRepository.findAllBySoftware(optionalSoftware.get());
         } else {
             // Retorna uma lista vazia
             return new ArrayList<>();
         }
     }
 
+    @GetMapping(path = "/search/{name}")
+    public @ResponseBody List<Software> searchSoftwareByName(@PathVariable("name") String name) {
+        List<Ativos> ativos = ativoRepository.findByNomeContaining(name);
+        return softwareRepository.findByProdutoIn(ativos);
+    }
 
 }

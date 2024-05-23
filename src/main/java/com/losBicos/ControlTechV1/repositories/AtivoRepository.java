@@ -13,4 +13,5 @@ public interface AtivoRepository extends JpaRepository<Ativos, Long> {
     Optional<Ativos> findById(Long id);
     Ativos findByNome(String nome);
     List<Ativos> findByLocalArmazenado(LocalArmazenado localArmazenado);
+    List<Ativos> findByNomeContaining(String nome);
 }

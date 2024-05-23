@@ -27,20 +27,18 @@ public class Software {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_software;
+    private Long id_software;
     private String versao;
     private Date data_expira;
     private String n_licenca;
     private String tipo_OS;
-
-
 
     @ManyToOne
     @JoinColumn(name = "id_produto")
     private Ativos produto;
 
     @OneToMany
-    @JoinColumn(name = "id_licenca")
+    @Column(name = "id_licenca")
     private List<Licencas> licencas;
 
     public List<Licencas> getLicencas() {
@@ -51,7 +49,7 @@ public class Software {
         this.licencas = licencas;
     }
 
-    public void setId_software(Integer id_software) {
+    public void setId_software(Long id_software) {
         this.id_software = id_software;
     }
 
@@ -75,7 +73,7 @@ public class Software {
         this.produto = produto;
     }
 
-    public Integer getId_software() {
+    public Long getId_software() {
         return id_software;
     }
 

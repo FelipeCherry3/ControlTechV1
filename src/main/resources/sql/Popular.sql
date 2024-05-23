@@ -1,13 +1,12 @@
 use ControleTechFabrica3;
 
-select * from produto;
+select * from licencas;
 
 -- Desabilitar verificações de chave estrangeira
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- Truncar todas as tabelas
 TRUNCATE TABLE users_has_produto;
-TRUNCATE TABLE software_has_licencas;
 TRUNCATE TABLE produto_has_fornecedor;
 TRUNCATE TABLE produto_has_categoria;
 TRUNCATE TABLE ativoFisico;
@@ -58,10 +57,10 @@ INSERT INTO software (versao, data_expira, n_licenca, tipo_OS, id_produto) VALUE
 ('3.3.2', '2024-11-15', 'LIC987654', 'macOS', 1);
 
 -- Populando a tabela 'licencas'
-INSERT INTO licencas (chave, observacoes, id_usuario) VALUES
-('ABCD-1234-EFGH-5678', 'Licença anual', 1),
-('IJKL-9012-MNOP-3456', 'Licença semestral', 2),
-('QRST-7890-UVWX-1234', 'Licença trimestral', 3);
+INSERT INTO licencas (chave, observacoes,id_software,  id_usuario) VALUES
+('ABCD-1234-EFGH-5678', 'Licença anual', 1,1),
+('IJKL-9012-MNOP-3456', 'Licença semestral',1, 2),
+('QRST-7890-UVWX-1234', 'Licença trimestral',1, 3);
 
 -- Populando a tabela 'categoria'
 INSERT INTO categoria (nome) VALUES
@@ -80,11 +79,6 @@ INSERT INTO users_has_produto (id_users, id_produto) VALUES
 (2, 2),
 (3, 3);
 
--- Populando a tabela 'software_has_licencas'
-INSERT INTO software_has_licencas (id_licenca, id_software) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
 
 -- Populando a tabela 'produto_has_fornecedor'
 INSERT INTO produto_has_fornecedor (id_produto, id_fornecedor) VALUES
