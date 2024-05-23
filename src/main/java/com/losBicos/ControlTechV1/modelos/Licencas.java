@@ -29,6 +29,6 @@ public class Licencas {
     private Software software;
 
     @OneToOne
-    @JoinColumn(name = "id_user")
+    @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 }
