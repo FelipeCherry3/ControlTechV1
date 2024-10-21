@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class AtivoFisico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_ativo;
+    private Long id_ativo;
     @ManyToOne
     @JoinColumn(name = "id_produto")
     private Ativos produto;

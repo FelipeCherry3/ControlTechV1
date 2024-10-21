@@ -12,6 +12,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class Software {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_software;
     private String versao;
-    private Date data_expira;
+    private LocalDate data_expira;
     private String n_licenca;
     private String tipo_OS;
 
@@ -57,7 +58,7 @@ public class Software {
         this.versao = versao;
     }
 
-    public void setData_expira(Date data_expira) {
+    public void setData_expira(LocalDate data_expira) {
         this.data_expira = data_expira;
     }
 
@@ -81,7 +82,7 @@ public class Software {
         return versao;
     }
 
-    public Date getData_expira() {
+    public LocalDate getData_expira() {
         return data_expira;
     }
 
